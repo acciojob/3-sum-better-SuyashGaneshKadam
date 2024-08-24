@@ -1,6 +1,6 @@
 function threeSum(arr, target) {
 // write your code here
-	let ansArr = [], min = Infinity;
+	let ansArr = [];
 
 for(i=0;i<arr.length-2;i++){
     for(j=i+1;j<arr.length-1;j++){
@@ -12,11 +12,16 @@ for(i=0;i<arr.length-2;i++){
 
 let ansArr2 = [];
 for(i=0;i<ansArr.length;i++){
-    ansArr2[i] = Math.abs(ansArr[i] - target);
+    ansArr2[i] = (ansArr[i] - target);
 }
 
-ansArr2.sort((a,b) => a-b);
-min = ansArr2[0] + target;
+let min = 0, value = 0;
+
+for(i=0;i<ansArr2.length;i++){
+    if(min > ansArr2[i]){
+        min = ansArr[i];
+    }
+}
 	return min;
 }
 
