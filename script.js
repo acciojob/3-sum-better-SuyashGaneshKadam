@@ -1,28 +1,23 @@
 function threeSum(arr, target) {
 // write your code here
-	arr.sort((a,b) => a-b);
-	let ans = 10000;
-	let diff = 10000;
-	for(let i=0 ; i<arr.length ; i++){
-		let l = i+1, r = arr.length - 1;
-		while(l < r){
-			let sum = arr[i] + arr[l] + arr[r];
-			if(sum == target){
-				return sum;
-			}
-			else if(sum < target){
-				l++;
-			}
-			else{
-				r--;
-			}
-			if(Math.abs(sum-target) < diff){
-				diff = Math.abs(sum-target);
-				ans = sum;
-			}
-		}
-	}
-	return ans;
+	let ansArr = [], min = Infinity;
+
+for(i=0;i<arr.length-2;i++){
+    for(j=i+1;j<arr.length-1;j++){
+        for(k=j+1;k<arr.length;k++){
+            ansArr.push(arr[i]+arr[j]+arr[k]);
+        }
+    }
+}
+
+let ansArr2 = [];
+for(i=0;i<ansArr.length;i++){
+    ansArr2[i] = Math.abs(ansArr[i] - target);
+}
+
+ansArr2.sort((a,b) => a-b);
+min = ansArr2[0] + target;
+	return min;
 }
 
 module.exports = threeSum;
