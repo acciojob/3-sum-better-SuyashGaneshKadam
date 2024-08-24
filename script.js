@@ -15,7 +15,7 @@ for(i=0;i<ansArr.length;i++){
     ansArr2[i] = (ansArr[i] - target);
 }
 
-let min = 0, value = 0;
+let min = Infinity;
 
 for(i=0;i<ansArr2.length;i++){
     if(min > ansArr2[i]){
